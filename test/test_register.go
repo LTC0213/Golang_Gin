@@ -12,7 +12,7 @@ type User struct {
 	City     string   `form:"city"`
 }
 
-func Regsiter(c *gin.Context) {
+func Register(c *gin.Context) {
 	var user User
 	c.ShouldBind(&user)
 	c.String(200, "User:%s", user)
@@ -25,7 +25,7 @@ func GoRegister(c *gin.Context) {
 func main() {
 	e := gin.Default()
 	e.LoadHTMLGlob("templates/*")
-	e.POST("/register", Regsiter)
+	e.POST("/register", Register)
 	e.GET("/register", GoRegister)
 	e.Run()
 }
